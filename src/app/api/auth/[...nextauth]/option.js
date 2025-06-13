@@ -1,8 +1,8 @@
 // src/app/api/auth/[...nextauth]/options.js
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import dbConnect from "@/lib/database";
-import User from "@/models/user.model";
+import dbConnect from "@/server/lib/database";
+import User from "@/server/models/user.model";
 
 export const authOptions = {
     providers: [

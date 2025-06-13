@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
-import dbConnect from '@/lib/database';
-import User from '@/models/user.model';
+import dbConnect from '@/server/lib/database';
+import User from '@/server/models/user.model';
 
-export async function POST(request : Request) {
+export async function POST(request: Request) {
     await dbConnect();
 
     try {
@@ -32,7 +32,7 @@ export async function POST(request : Request) {
             { status: 201 }
         );
     } catch (error) {
-        console.log(" Register POST ",error);
+        console.log(" Register POST ", error);
         return NextResponse.json(
             { error: error },
             { status: 500 }
@@ -47,7 +47,7 @@ export async function GET() {
         const users = await User.find({}).select('-passwordHash');
         return NextResponse.json(users);
     } catch (error) {
-        console.log(" Register GET ",error);
+        console.log(" Register GET ", error);
         return NextResponse.json(
             { error: error },
             { status: 500 }
