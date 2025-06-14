@@ -44,7 +44,7 @@ export default function Home() {
       <section className="container mx-auto px-6 py-20 text-center">
         <h1 className="text-5xl md:text-7xl font-bold mb-6">
           <span className="bg-gradient-to-r from-[#6C4DF6] to-[#00F0FF] bg-clip-text text-transparent">
-            Collaborate Like It's 2050
+            Collaborate Like It&#39;s 2050
           </span>
         </h1>
         <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-12">
@@ -134,7 +134,7 @@ export default function Home() {
                   <p className="text-sm text-[#B0B0B0]">CS Student</p>
                 </div>
               </div>
-              <p className="italic">"This app made my study group 10x more productive. The whiteboard is 🔥!"</p>
+              <p className="italic">&quot;This app made my study group 10x more productive. The whiteboard is 🔥!&quot;</p>
             </div>
           ))}
         </div>

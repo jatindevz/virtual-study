@@ -4,7 +4,7 @@
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 export default function Dashboard() {
     // Mock data - replace with real data from your API
@@ -52,7 +52,7 @@ export default function Dashboard() {
             <div className="flex justify-between items-center mb-8">
                 <div>
                     <h1 className="text-3xl font-bold text-white">Dashboard</h1>
-                    <p className="text-[#B0B0B0]">Welcome back! Here's your study overview</p>
+                    <p className="text-[#B0B0B0]">Welcome back! Here&apos;s your study overview</p>
                 </div>
                 <div className="flex gap-4">
                     <Button variant="outline" className="border-[#252535] text-white hover:bg-[#252535]">
