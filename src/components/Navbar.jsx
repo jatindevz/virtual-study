@@ -5,10 +5,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Plus, Users } from "lucide-react";
+import { useSession } from 'next-auth/react'
+
 
 export default function Navbar({ isLoggedIn = false }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const { data: session } = useSession()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -33,7 +36,7 @@ export default function Navbar({ isLoggedIn = false }) {
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center space-x-6">
-                    {isLoggedIn ? (
+                    {session ? (
                         <>
                             <Link
                                 href="/groups/join"

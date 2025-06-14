@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import AuthProvider from "@/server/context/AuthProvider";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import ClickSpark from '@/components/ui/ClickSpark';
+  {/* Your content here */}
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,8 +33,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      
+      <ClickSpark
+        sparkColor='#fff'
+        sparkSize={10}
+        sparkRadius={15}
+        sparkCount={8}
+        duration={400}
+      >
           {children}
-
+      </ClickSpark>
         <Toaster />
       </body>
       </AuthProvider>

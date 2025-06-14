@@ -7,17 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Edit2, Link as LinkIcon, Users, Calendar, Bookmark } from "lucide-react";
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
-// Mock user data - replace with actual data fetching
-const currentUser = {
-    _id: "507f1f77bcf86cd799439011",
-    name: "Alex Chen",
-    email: "alex@studyfutura.com",
-    profilePicture: "/default-avatar.jpg", // Replace with actual path
-    bio: "CS student passionate about AI and collaborative learning. Currently studying algorithms and web development.",
-    institution: "Stanford University",
-    joinedGroups: ["641d3b0a5f7b4a2a9c4e5f1a", "641d3b0a5f7b4a2a9c4e5f1b"],
-    createdAt: "2023-05-15T10:00:00Z",
-};
+
 
 // Mock group data - replace with actual data fetching
 const userGroups = [
@@ -84,7 +74,7 @@ export default function ProfilePage() {
                                         <span>@{session?.user?.email.split("@")[0]}</span>
                                         <span>·</span>
                                         <span>
-                                            Member since {new Date(currentUser.createdAt).toLocaleDateString()}
+                                            Member since {new Date(session?.user?.createdAt).toLocaleDateString()}
                                         </span>
                                     </p>
                                 </div>
