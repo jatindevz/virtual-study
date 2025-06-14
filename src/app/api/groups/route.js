@@ -2,13 +2,11 @@
 
 import { NextResponse } from 'next/server'
 import dbConnect from '@/server/lib/database'
-import { StudyGroup } from '@/server/models/studyGroup.model'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/api/auth/[...nextauth]/option' // if using next-auth
 import User from '@/server/models/user.model'
-import GroupMember from '@/server/models/groupMember.model'
 
-export async function GET(req) {
+export async function GET() {
     try {
         const session = await getServerSession(authOptions)
         await dbConnect()

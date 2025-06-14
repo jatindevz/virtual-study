@@ -47,7 +47,7 @@ export async function POST(req) {
         await user.save()
        
 
-        return NextResponse.json({ message: 'Group joined successfully' }, { status: 200 })
+        return NextResponse.json({ message: 'Group joined successfully', newMember }, { status: 200 })
     } catch (err) {
         console.error(err)
         return NextResponse.json({ message: 'Failed to join group' }, { status: 500 })
