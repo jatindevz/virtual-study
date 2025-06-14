@@ -56,7 +56,7 @@ export default function RegisterPage() {
         // setIsSubmit(true)
         try {
             const res = await axios.post('/api/auth/register', data)
-            toast.success(res.data)
+            toast.success(res.data.message)
             router.replace(`/login`)
         } catch (error) {
             const axiosError = error as AxiosError<ErrorResponse>

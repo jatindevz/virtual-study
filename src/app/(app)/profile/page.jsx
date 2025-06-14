@@ -1,12 +1,14 @@
 // app/profile/page.jsx
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Edit2, Link as LinkIcon, Users, Calendar, Bookmark } from "lucide-react";
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
+import { toast } from "sonner";
+import axios from "axios";
 
 
 // Mock group data - replace with actual data fetching
@@ -40,6 +42,29 @@ const userGroups = [
 export default function ProfilePage() {
     const {data : session} = useSession()
     const [isEditing, setIsEditing] = useState(false);
+    const [useJoinedrGroups, setUseJoinedrGroups] = useState([]) // [useJoinedrGroups]
+    useEffect(() => {
+        if (isEditing) {
+            document.body.classList.add("overflow-hidden");
+        } else {
+            document.body.classList.remove("overflow-hidden");
+        }
+
+        const getGroups = async () => {
+            try {
+                const response = await axios.get("/api/groups");
+                const groups = await response.data.groups;
+                setUseJoinedrGroups(groups)
+                toast.success("Groups fetched successfully");
+                console.log(groups);
+            } catch (error) {
+                console.error("Error fetching groups:", error);
+            }
+        };
+
+        getGroups();
+        }
+    , []);
 
     return (
         <div className="min-h-screen bg-[#0F0F15] py-12 px-4 sm:px-6 lg:px-8">
@@ -144,7 +169,7 @@ export default function ProfilePage() {
                         </div>
 
                         <div className="space-y-4">
-                            {userGroups.map((group) => (
+                            {useJoinedrGroups.map((group) => (
                                 <Link
                                     key={group._id}
                                     href={`/groups/${group._id}`}
